@@ -1,0 +1,95 @@
+:root {
+  --bg-color: rgb(255, 255, 255);
+  --bg-color-hover: rgb(30, 30, 46);
+  --primary-color: rgb(0, 0, 0);
+  --secondary-color: rgb(255, 255, 255);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+  background-color: var(--bg-color);
+}
+
+button,
+input,
+select {
+  background-color: transparent;
+  border: thin solid var(--secondary-color);
+  padding: 0.5rem;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 300ms ease;
+  display: block;
+  color: var(--primary-color);
+}
+
+button:hover {
+  background-color: var(--bg-color-hover);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: unset;
+  }
+}
+
+a {
+  text-decoration: none;
+  transition: 300ms ease;
+  display: inline-block;
+  color: var(--white);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  color: var(--primary-color);
+}
+
+img,
+video,
+iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+img {
+  /* Para que no se pueda seleccionar ni arrastrar ni copiar */
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+li {
+  list-style: none;
+}
