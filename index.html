@@ -7,11 +7,192 @@
     <title>Oro y miel Bazar - Registro de Ventas </title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.jpg" type="image/jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
     <main>
-
+        <nav class="nav-bar">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Logo de Oro y miel Bazar" class="logo">
+            </div>
+            <div class="nav-bar-content">
+                <p class='nav-bar-title'>Sistema de Ventas - Oro y miel Bazar</p>
+            </div>
+        </nav>
+        <section class="sale-record-container">
+            <div class="sale-record-content">
+                <div class="financial-information">
+                    <article class="info-item">
+                        <div>
+                            <header>
+                                <h2>Ventas Totales</h2>
+                            </header>
+                            <p>$287.00</p>
+                        </div>
+                        <div class="icon-container">
+                            <i class="fa-solid fa-dollar-sign dollar"></i>
+                        </div>
+                    </article>
+                    <article class="info-item">
+                        <div>
+                            <header>
+                                <h2>Ganancias</h2>
+                            </header>
+                            <p>$87.00</p>
+                        </div>
+                        <div class="icon-container">
+                            <i class="fa-solid fa-arrow-trend-up arrow"></i>
+                        </div>
+                    </article>
+                    <article class="info-item">
+                        <div>
+                            <header>
+                                <h2>Inversión</h2>
+                            </header>
+                            <p>$200.00</p>
+                        </div>
+                        <div class="icon-container">
+                            <i class="fa-solid fa-box-archive archive"></i>
+                        </div>
+                    </article>
+                </div>
+                <div class="sales-list">
+                    <header>
+                        <h2 class="header-title">Últimas ventas</h2>
+                    </header>
+                    <div class="sales-list-content">
+                        <article class="sale-item">
+                            <header>
+                                <p class="sale-date">27/02/25</p>
+                            </header>
+                            <div class="sale-info">
+                                <p class="sale-product">Camiseta de gomitas</p>
+                                <p class="sale-amount">100$</p>
+                            </div>
+                            <div class="sale-details">
+                                <div class="details win">
+                                    <header>
+                                        <p>Ganancia</p>
+                                    </header>
+                                    <div class="detail-amount">
+                                        <p class="detail-text-amount">$40</p>
+                                        <div class="porcentaje bg-win">
+                                            <p>40%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="details inversion">
+                                    <header>
+                                        <p>Inversión</p>
+                                    </header>
+                                    <div class="detail-amount">
+                                        <p class="detail-text-amount">$60</p>
+                                        <div class="porcentaje bg-inversion">
+                                            <p>60%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="sale-item">
+                            <header>
+                                <p class="sale-date">27/02/25</p>
+                            </header>
+                            <div class="sale-info">
+                                <p class="sale-product">Camiseta de gomitas</p>
+                                <p class="sale-amount">100$</p>
+                            </div>
+                            <div class="sale-details">
+                                <div class="details win">
+                                    <header>
+                                        <p>Ganancia</p>
+                                    </header>
+                                    <div class="detail-amount">
+                                        <p class="detail-text-amount">$40</p>
+                                        <div class="porcentaje bg-win">
+                                            <p>40%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="details inversion">
+                                    <header>
+                                        <p>Inversión</p>
+                                    </header>
+                                    <div class="detail-amount">
+                                        <p class="detail-text-amount">$60</p>
+                                        <div class="porcentaje bg-inversion">
+                                            <p>60%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="sale-item">
+                            <header>
+                                <p class="sale-date">27/02/25</p>
+                            </header>
+                            <div class="sale-info">
+                                <p class="sale-product">Camiseta de gomitas</p>
+                                <p class="sale-amount">100$</p>
+                            </div>
+                            <div class="sale-details">
+                                <div class="details win">
+                                    <header>
+                                        <p>Ganancia</p>
+                                    </header>
+                                    <div class="detail-amount">
+                                        <p class="detail-text-amount">$40</p>
+                                        <div class="porcentaje bg-win">
+                                            <p>40%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="details inversion">
+                                    <header>
+                                        <p>Inversión</p>
+                                    </header>
+                                    <div class="detail-amount">
+                                        <p class="detail-text-amount">$60</p>
+                                        <div class="porcentaje bg-inversion">
+                                            <p>60%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <aside>
+            <a class="add-sale-button" id="add-sale-button"><i class="fa-solid fa-plus"></i></a>
+            <dialog class="create-sale-dialog" id="create-sale-dialog">
+                <div class="create-sale-content">
+                    <header>
+                        <h2 class="header-title">Nueva Venta</h2>
+                    </header>
+                    <form class="sale-form">
+                        <fieldset class="sale-form-fieldset">
+                            <div class="form-field">
+                                <label for="form-sale-title">Nombre de la Prenda</label>
+                                <input type="text" id="form-sale-title" placeholder="Ej. Camisa de rayas" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="form-sale-amount">Precio de Venta ($)</label>
+                                <input type="number" id="form-sale-amount" placeholder="0.00" required>
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="sale-form-button">Registrar Venta</button>
+                    </form>
+                </div>
+            </dialog>
+        </aside>
     </main>
     <script src="main.js"></script>
 </body>
