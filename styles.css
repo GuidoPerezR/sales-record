@@ -138,19 +138,17 @@ li {
 
 .sale-record-container {
   min-height: 100dvh;
-  margin: 5rem 0;
-  padding: 4rem 2rem;
+  padding: 10rem 2rem;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .sale-record-content {
   width: 100%;
-  max-width: 20rem;
+  max-width: 22rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .header-title {
@@ -166,6 +164,7 @@ li {
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 2rem;
   place-content: center;
+  animation: fade-in 0.5s ease-in;
 
   & article:nth-of-type(1) {
     background: var(--sale-bg-color);
@@ -233,12 +232,13 @@ li {
   gap: 2rem;
   justify-content: center;
   align-items: center;
+  animation: later-fade-in 0.8s ease-in;
 }
 
 .sales-list-content {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 1.5rem;
 }
 
@@ -261,6 +261,7 @@ li {
 .sale-info {
   display: flex;
   justify-content: space-between;
+  gap: 0.3rem;
 }
 
 .sale-product {
@@ -329,6 +330,13 @@ li {
   background: var(--inversion-color);
 }
 
+.empty-message {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--grey-text);
+}
+
 .add-sale-button {
   position: fixed;
   bottom: 0;
@@ -343,13 +351,14 @@ li {
   width: 4rem;
   border-radius: 50%;
   cursor: pointer;
-  transition: color 0.3s ease, background 0.3s ease;
+  transition: all 0.3s ease;
   color: var(--secondary-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
   &:hover {
     background: var(--secondary-color);
     color: var(--primary-color);
+    transform: translate(-50%, -40%);
   }
 }
 
@@ -364,6 +373,7 @@ li {
   background: rgb(255, 252, 232);
   border: 2px solid var(--secondary-color);
   border-radius: 0.5rem;
+  animation: show-modal 0.3s ease;
 
   &::backdrop {
     background: rgba(0, 0, 0, 0.2);
@@ -428,5 +438,57 @@ li {
 
   &:hover {
     background: var(--secondary-color);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes later-fade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show-modal {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 48rem) {
+  .sale-record-content {
+    max-width: 35rem;
+  }
+
+  .create-sale-dialog {
+    max-width: 30rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .sale-record-content {
+    max-width: 55rem;
+  }
+
+  .create-sale-dialog {
+    max-width: 40rem;
   }
 }
