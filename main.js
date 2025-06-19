@@ -12,14 +12,16 @@ const saleFormTitle = $('#form-sale-title')
 const saleFormSaleAmount = $('#form-sale-amount')
 const saleFormBuyAmount = $('#form-buy-amount')
 
-const saleData = JSON.parse(localStorage.getItem('saleData')) || {
-    id: 0,
-    sales: [],
-    saleAmount: 0,
-    winAmount: 0,
-    inversionAmount: 0,
-    costAmount: 0
-}
+const savedSaleData = JSON.parse(localStorage.getItem('saleData')) || {};
+// Previniendo defaults por defecto
+const saleData = {
+    id: savedSaleData.id || 0,
+    sales: savedSaleData.sales || [],
+    saleAmount: savedSaleData.saleAmount || 0,
+    winAmount: savedSaleData.winAmount || 0,
+    inversionAmount: savedSaleData.inversionAmount || 0,
+    costAmount: savedSaleData.costAmount || 0
+};
 
 renderSale()
 
