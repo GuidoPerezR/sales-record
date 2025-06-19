@@ -3,19 +3,22 @@ const $ = (element) => document.querySelector(element);
 const saleAmount = $('#sale-amount')
 const winAmount = $('#win-amount')
 const inversionAmount = $('#inversion-amount')
+const costAmount = $('#cost-amount')
 const createSaleButton = $('.add-sale-button')
 const createSaleModal = $('#create-sale-dialog')
 const saleForm = $('.sale-form')
 const saleListContent = $('.sales-list-content')
 const saleFormTitle = $('#form-sale-title')
-const saleFormAmount = $('#form-sale-amount')
+const saleFormSaleAmount = $('#form-sale-amount')
+const saleFormBuyAmount = $('#form-buy-amount')
 
 const saleData = JSON.parse(localStorage.getItem('saleData')) || {
     id: 0,
     sales: [],
     saleAmount: 0,
     winAmount: 0,
-    inversionAmount: 0
+    inversionAmount: 0,
+    costAmount: 0
 }
 
 renderSale()
@@ -30,7 +33,11 @@ function parseDate(date) {
 }
 
 function convertAmount(amount) {
-    return `$${amount.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+    if (amount){
+        return `$${amount.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+    } else{
+        return '$0.00'
+    }
 }
 
 function saveData(data) {
@@ -39,6 +46,7 @@ function saveData(data) {
     saleData.saleAmount += data.saleAmount
     saleData.winAmount += data.winAmount
     saleData.inversionAmount += data.inversionAmount
+    saleData.costAmount += data.costAmount
     // Se setea un elemento en el LocalStorage, donde queremos que tenga el nombre de sales y el valor sera sales en formato JSON
     localStorage.setItem('saleData', JSON.stringify(saleData))
 }
@@ -48,10 +56,12 @@ function renderSale() {
     saleAmount.innerHTML = ''
     winAmount.innerHTML = ''
     inversionAmount.innerHTML = ''
+    costAmount.innerHTML = ''
 
     saleAmount.insertAdjacentText('afterbegin', convertAmount(saleData?.saleAmount))
     winAmount.insertAdjacentText('afterbegin', convertAmount(saleData?.winAmount))
     inversionAmount.insertAdjacentText('afterbegin', convertAmount(saleData?.inversionAmount))
+    costAmount.insertAdjacentText('afterbegin', convertAmount(saleData?.costAmount))
 
     // Ultimas 10 ventas
     const lastSales = saleData.sales.slice(0, 10);
@@ -70,27 +80,17 @@ function renderSale() {
                                 <p class="sale-amount">${convertAmount(sale.saleAmount)}</p>
                             </div>
                             <div class="sale-details">
-                                <div class="details win">
-                                    <header>
-                                        <p>Ganancia</p>
-                                    </header>
-                                    <div class="detail-amount">
-                                        <p class="detail-text-amount">${convertAmount(sale.winAmount)}</p>
-                                        <div class="porcentaje bg-win">
-                                            <p>40%</p>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="details inversion">
-                                    <header>
-                                        <p>Inversión</p>
-                                    </header>
-                                    <div class="detail-amount">
-                                        <p class="detail-text-amount">${convertAmount(sale.inversionAmount)}</p>
-                                        <div class="porcentaje bg-inversion">
-                                            <p>60%</p>
-                                        </div>
-                                    </div>
+                                    <p>Inversión</p>
+                                    <p class="detail-text-amount">${convertAmount(sale.inversionAmount)}</p>
+                                </div>
+                                <div class="details win">
+                                    <p>Ganancia</p>
+                                    <p class="detail-text-amount">${convertAmount(sale.winAmount)}</p>
+                                </div>
+                                <div class="details cost">
+                                    <p>Gastos Fijos</p>
+                                    <p class="detail-text-amount">${convertAmount(sale.costAmount)}</p>
                                 </div>
                             </div>
                         </article>`
@@ -99,16 +99,18 @@ function renderSale() {
     }
 }
 
-function createSaleElement(title, amount) {
+function createSaleElement(title, buyAmount, saleAmount) {
     const winPorcentaje = 0.4
-    const inversionPorcentaje = 0.6
+    const costPorcentaje = 0.6
+    const differenceAmount = saleAmount - buyAmount
 
     return {
         id: saleData.id,
         title,
-        saleAmount: amount,
-        winAmount: amount * winPorcentaje,
-        inversionAmount: amount * inversionPorcentaje,
+        saleAmount,
+        inversionAmount: buyAmount,
+        costAmount: differenceAmount * costPorcentaje,
+        winAmount: differenceAmount * winPorcentaje,
         date: new Date()
     }
 }
@@ -116,16 +118,19 @@ function createSaleElement(title, amount) {
 saleForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const title = saleFormTitle.value.trim();
-    const amount = parseFloat(saleFormAmount.value.trim());
+    const buyAmount = parseFloat(saleFormBuyAmount.value.trim());
+    const saleAmount = parseFloat(saleFormSaleAmount.value.trim());
 
-    if (title && amount) {
-        const saleElement = createSaleElement(title, amount)
+    if (title && buyAmount && saleAmount) {
+        const saleElement = createSaleElement(title, buyAmount, saleAmount)
+
         saveData(saleElement)
         renderSale()
     }
 
     saleFormTitle.value = ''
-    saleFormAmount.value = ''
+    saleFormSaleAmount.value = ''
+    saleFormBuyAmount.value = ''
     createSaleModal.close()
 })
 
