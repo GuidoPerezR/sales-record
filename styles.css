@@ -13,6 +13,8 @@
   --win-color: rgb(211, 246, 231);
   --inversion-bg-color: rgb(255, 251, 235);
   --inversion-color: rgb(253, 238, 183);
+  --cost-bg-color: rgb(255, 241, 241);
+  --cost-color: rgb(255, 204, 204);
   --item-bg-color: rgb(250, 250, 250);
   --item-color: rgb(202, 201, 201);
 }
@@ -161,7 +163,7 @@ li {
 
 .financial-information {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   place-content: center;
   animation: fade-in 0.5s ease-in;
@@ -179,6 +181,11 @@ li {
   & article:nth-of-type(3) {
     background: var(--inversion-bg-color);
     border: 3px solid var(--inversion-color);
+  }
+
+  & article:nth-of-type(4) {
+    background: var(--cost-bg-color);
+    border: 3px solid var(--cost-color);
   }
 }
 
@@ -224,6 +231,10 @@ li {
 
 .archive {
   color: rgb(247, 169, 38);
+}
+
+.coins {
+  color: rgb(252, 57, 57);
 }
 
 .sales-list {
@@ -278,8 +289,9 @@ li {
 
 .sale-details {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .win {
@@ -292,10 +304,16 @@ li {
   color: rgb(163, 137, 34);
 }
 
+.cost {
+  background: var(--cost-bg-color);
+  color: rgb(200, 60, 60);
+}
+
 .details {
   display: flex;
-  flex-direction: column;
-  padding: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.3rem;
   border-radius: 1rem;
   width: 100%;
   font-size: 0.9rem;
@@ -425,6 +443,14 @@ li {
       margin-left: 1rem;
     }
   }
+}
+
+.buy-highlight {
+  color: var(--secondary-color);
+}
+
+.sale-highlight {
+  color: rgb(136, 160, 236);
 }
 
 .sale-form-button {
