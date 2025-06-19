@@ -75,6 +75,17 @@
                             <i class="fa-solid fa-box-archive archive"></i>
                         </div>
                     </article>
+                    <article class="info-item">
+                        <div>
+                            <header>
+                                <h2>Gastos Fijos</h2>
+                            </header>
+                            <p id="cost-amount"></p>
+                        </div>
+                        <div class="icon-container">
+                            <i class="fa-solid fa-coins coins"></i>
+                        </div>
+                    </article>
                 </div>
                 <div class="sales-list">
                     <header>
@@ -99,7 +110,13 @@
                                 <input type="text" id="form-sale-title" placeholder="Ej. Camisa de rayas" required>
                             </div>
                             <div class="form-field">
-                                <label for="form-sale-amount">Precio de Venta ($)</label>
+                                <label for="form-buy-amount">Precio de <span class="buy-highlight">Compra</span>
+                                    ($)</label>
+                                <input type="number" id="form-buy-amount" placeholder="0.00" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="form-sale-amount">Precio de <span class="sale-highlight">Venta</span>
+                                    ($)</label>
                                 <input type="number" id="form-sale-amount" placeholder="0.00" required>
                             </div>
                         </fieldset>
