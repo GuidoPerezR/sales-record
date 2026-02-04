@@ -237,12 +237,32 @@ li {
   color: rgb(252, 57, 57);
 }
 
+.reset-button-container {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+.reset-button {
+  background-color: #f7f9fc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: #64748b;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  width: fit-content;
+}
+
+.reset-button:hover {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
 .sales-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
   animation: later-fade-in 0.8s ease-in;
 }
 
@@ -251,16 +271,35 @@ li {
   display: flex;
   flex-direction: column-reverse;
   gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .sale-item {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  padding: 1rem;
+  padding: 1rem 0.8rem;
   background: var(--item-bg-color);
   border: 1px solid var(--item-color);
   border-radius: 1rem;
+}
+
+.sale-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.delete-icon {
+  width: 1.5rem;
+  color: var(--light-primary-color);
 }
 
 .sale-date {
@@ -289,23 +328,35 @@ li {
 
 .sale-details {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: row; */
   align-items: center;
   gap: 0.5rem;
 }
 
 .win {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--win-bg-color);
+  border: 2px solid var(--win-color);
   color: rgb(43, 119, 94);
 }
 
 .inversion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--inversion-bg-color);
+  border: 2px solid var(--inversion-color);
   color: rgb(163, 137, 34);
 }
 
 .cost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--cost-bg-color);
+  border: 2px solid var(--cost-color);
   color: rgb(200, 60, 60);
 }
 
